@@ -14,6 +14,10 @@ type imgFacClient struct {
 	clientsecret string
 }
 
+func CreateImgFacClient(baseurl string, clientid string, clientsecret string) *imgFacClient {
+	return &imgFacClient{baseurl, clientid, clientsecret}
+}
+
 func (c *imgFacClient) call(method string,
 	urlParts []string,
 	arguments *map[string]string) ([]byte, error) {
