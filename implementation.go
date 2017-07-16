@@ -6,8 +6,6 @@ import (
 	"net/http"
 	"net/url"
 	"strings"
-
-	"fmt"
 )
 
 type imgFacClient struct {
@@ -51,7 +49,6 @@ func (c *imgFacClient) call(method string,
 		return nil, err
 	}
 
-	fmt.Println("Sending", req)
 	res, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return nil, err
@@ -61,6 +58,5 @@ func (c *imgFacClient) call(method string,
 		return nil, err
 	}
 
-	fmt.Println("Body:", string(body))
 	return body, nil
 }

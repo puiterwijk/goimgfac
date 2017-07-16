@@ -3,8 +3,6 @@ package goimgfac
 import (
 	"encoding/json"
 	"time"
-
-	"fmt"
 )
 
 type baseImageBuildInfo struct {
@@ -26,7 +24,6 @@ type imageInfo struct {
 func (c *imgFacClient) BuildBaseImage(template string,
 	parameters map[string]string) (*imageInfo, error) {
 	parameters["template"] = template
-	fmt.Println("Parameters:", parameters)
 	resp, err := c.call("POST",
 		[]string{"base_images"},
 		&parameters)
